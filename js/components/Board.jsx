@@ -1,6 +1,8 @@
 import React from 'react'
 import Tile from './Tile'
 
+require("./../../styles/board")
+
 var Board = React.createClass({
   displayName: "Board",
   propTypes: {
@@ -25,7 +27,10 @@ var Board = React.createClass({
   },
 
   updateColor: function (id, color) {
-    console.log(arguments)
+    // Oh god, mutating the state before you hit setState... Shoulda used redux.
+    var tileData = this.state.tileData
+    tileData[id] = {color: color}
+    this.setState({tileData})
   },
 
   makeTiles: function (size, tileData) {
@@ -48,10 +53,14 @@ var Board = React.createClass({
     var tiles = this.makeTiles(data.size, data.tileData)
 
     return (
-      <div>
+      <div className='board'>
         <h2>{data.name}</h2>
         <p>{data.description}</p>
-        {tiles}
+        <div
+          className='tiles'
+          style={style}>
+          {tiles}
+        </div>
       </div>
     )
   }

@@ -8,15 +8,22 @@ var Tile = React.createClass({
     updateColor: React.PropTypes.func
   },
 
+  shouldComponentUpdate: function () {
+    return true;
+  },
+
   updateColor: function () {
     this.props.updateColor(randomcolor())
   },
 
   render: function () {
-    var color = this.props.data ? this.props.data.color : '000000'
+    var color = this.props.data ? this.props.data.color : 'ffffff'
+    var style = {
+      backgroundColor: color
+    }
     return <span
       onClick={this.updateColor}
-      style={{backgroundColor: `#${color}`}}>
+      style={style}>
       {color}
     </span>
   }
