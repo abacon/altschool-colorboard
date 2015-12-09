@@ -10,12 +10,17 @@ var history = useBasename(createHistory)({
   basename: '/'
 })
 
+// React-router is a trash fire rn, just write the color board stuff first.
+import Board from './components/Board'
+
+
 var App = React.createClass({
   displayName: 'app',
   render: function() {
     return (<div>
       <Link to='/boards'>Boards</Link>
       <Link to='/'>Home</Link>
+      <Board />
     </div>)
   }
 })
