@@ -19,9 +19,9 @@ var Board = React.createClass({
       // If boards are more densely-populated, we could just use lists of lists.
       // Compression?
       tileData: {
-        2: {color: 'fefefe'},
-        4: {color: 'fefefe'},
-        6: {color: 'efefef'}
+        2: {color: '#fefefe'},
+        4: {color: '#fefefe'},
+        6: {color: '#efefef'}
       }
     }
   },
@@ -41,6 +41,7 @@ var Board = React.createClass({
         <Tile
           key={i}
           updateColor={this.updateColor.bind(this, i)}
+          width={1/size[0] * 100 + '%'}
           data={tileData[i]}
           />
       )
@@ -58,7 +59,6 @@ var Board = React.createClass({
         <p>{data.description}</p>
         <div
           className='tiles'
-          style={style}>
           {tiles}
         </div>
       </div>

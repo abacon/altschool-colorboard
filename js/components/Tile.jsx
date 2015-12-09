@@ -1,6 +1,8 @@
 import React from 'react'
 import randomcolor from 'randomcolor'
 
+require("./../../styles/tile")
+
 var Tile = React.createClass({
   displayName: "Tile",
   propTypes: {
@@ -17,14 +19,16 @@ var Tile = React.createClass({
   },
 
   render: function () {
-    var color = this.props.data ? this.props.data.color : 'ffffff'
+    var color = this.props.data ? this.props.data.color : '#ffffff'
     var style = {
-      backgroundColor: color
+      backgroundColor: color,
+      width: this.props.width
     }
     return <span
+      className='tile'
       onClick={this.updateColor}
       style={style}>
-      {color}
+      <span className='color-name'>{color}</span>
     </span>
   }
 
