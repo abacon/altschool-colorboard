@@ -1,7 +1,9 @@
+import React from 'react'
+
 var EditBoard = React.createClass({
   displayName: 'Board Editing route.',
   render: function() {
-    <span>A way to edit boards.</span>
+    return <span>A way to edit boards.</span>
   }
 })
 

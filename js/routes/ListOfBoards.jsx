@@ -1,7 +1,10 @@
+import React from 'react'
+
 var ListOfBoards = React.createClass({
   displayName: 'List of Boards',
   render: function() {
-    <span>A list of boards.</span>
+    console.log('rendering boards.')
+    return <span>A list of boards.</span>
   }
 })
 
