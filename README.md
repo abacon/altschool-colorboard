@@ -15,5 +15,5 @@ On the plus side, things are nice and extensible. And react is fun.
 ```sh
 npm install
 npm start
-open http://localhost:8000
+open http://localhost:8080
 ```
