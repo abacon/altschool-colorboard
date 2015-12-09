@@ -14,6 +14,7 @@ var Board = React.createClass({
       name: "BFB??",
       description: "Baby's first board.",
       size: [4, 4],
+      showColorNames: true,
 
       // This format is best for mostly-empty grids.
       // If boards are more densely-populated, we could just use lists of lists.
@@ -33,7 +34,7 @@ var Board = React.createClass({
     this.setState({tileData})
   },
 
-  makeTiles: function (size, tileData) {
+  makeTiles: function (size, tileData, showColorNames) {
     var length = size[0] * size[1]
     var tiles = []
     for (var i = 0; i < length; i++) {
@@ -43,6 +44,7 @@ var Board = React.createClass({
           updateColor={this.updateColor.bind(this, i)}
           width={1/size[0] * 100 + '%'}
           data={tileData[i]}
+          showColorNames={showColorNames}
           />
       )
     }
@@ -51,14 +53,14 @@ var Board = React.createClass({
 
   render: function () {
     var data = this.state
-    var tiles = this.makeTiles(data.size, data.tileData)
+    var tiles = this.makeTiles(data.size, data.tileData, data.showColorNames)
 
     return (
       <div className='board'>
         <h2>{data.name}</h2>
         <p>{data.description}</p>
         <div
-          className='tiles'
+          className='tiles'>
           {tiles}
         </div>
       </div>
